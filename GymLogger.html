@@ -1,0 +1,86 @@
+<!DOCTYPE html> <!-- Create style.css, link it to the HTML, and style the page layout.-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> GymLoggerApp </title>
+    <meta name="author" content="Maurice" >
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <section id="Intro">
+        <h1>Gym Logger</h1>
+        <h2>Rules</h2>
+        <p>Gym hours Start and end <strong>7:00 AM - 4:00 PM.</strong> </p>
+        </section>
+        <!-- Fill out form and it gets submitted as a record into the table-->
+
+        <!-- Really just needs CSS styling to beautify-->
+
+        <section id="Container">
+            <section >
+            <form action="" method="get" id="Form">
+                <div class="form-input" id="name">
+                    <label for="name"> Name F&L</label>
+                    <input type="text" name="name" class="form-control"  minlength="3" maxlength="30"
+                     required>           
+                </div>
+
+                <div class="form-input" id="ID-Code">
+                    <label for="ID-Code">ID </label>
+                    <input type="tel" name="ID-Code" 
+                     minlength="7" maxlength="7" class="form-control"  required>
+                </div>        
+
+                <div class="form-input" id="date">
+                    <label for="date"> Date</label>
+                    <input type="date" name="date" class="form-control"  placeholder="Date" required>
+                </div>
+
+                <div class="form-input">
+                <label for="In-Time">Time In</label>
+                <input type="time" min="7:00" max="16:00" name="In-Time" class="form-control" placeholder="Time in" required>
+                </div>
+
+                <div class="form-input">
+                <label for="Out-Time">Time Out</label>
+                <input type="time" min="7:00" max="16:00" name="Out-Time" class="form-control" required>
+                </div>
+
+                <div class="form-input">
+                    <label for="total-time">Total Time</label>
+                <input  type="text" name="total-time" id="total-time" class="form-control" readonly>
+                </div>
+              
+                <input type="submit" value="Log" class="form-control" id="Log" required>
+            </form>
+            </section>
+
+            <section >
+            <table id="Table">
+                <caption>Gym Logger</caption>
+                <thead>
+                    <tr>
+                        <th scope="col"> Name </th>
+                        <th scope="col"> Date </th>
+                        <th scope="col"> Time In </th>
+                        <th scope="col"> Time Out </th>
+                        <th scope="col"> Total Time </th>
+                        <th scope="col"> ID </th>
+
+                    </tr>
+                </thead>
+                <!-- Find a way to impelement adding form to table row[JS]-->
+                <tbody id="attendance-records">
+                    <tr>
+
+                    </tr>
+                </tbody>
+            
+            </table>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
