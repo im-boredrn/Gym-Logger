@@ -14,6 +14,18 @@ h2 {
     font-weight: 600;
 }
 
+input[type="submit"]:hover {
+        box-shadow: 0 0 12px #38BDF8;
+    }
+
+input[type="submit"]:active {
+    filter: brightness(0.5);
+}
+
+input[required]:hover {
+    box-shadow: 0 0 12px #38BDF8;
+}
+
 
 #Intro {
     text-align: center;
@@ -47,13 +59,6 @@ h2 {
 
 #Log {
     width: 800px;
-    input[type="submit"]:hover {
-        box-shadow: 0 0 12px #38BDF8;
-    }
-
-    input[type="submit"]:active {
-        filter:brightness(0.75)
-    }
 }
 
 .form-input {
@@ -75,6 +80,9 @@ h2 {
     -moz-border-radius : 25px;
     border-radius: 25px;
     height: 30px;
+    border: 1px #475569;
+    box-shadow: none;
+    outline: none;
 
 }
 
