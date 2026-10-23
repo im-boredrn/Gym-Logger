@@ -47,18 +47,21 @@ input[required]:hover {
 
 #Table {
     background-color: #64748B;
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
     border-radius: 25px;
     -moz-border-radius:25px;
 }
 
 #Form {
 
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
 }
 
 #Log {
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
 }
 
 .form-input {
