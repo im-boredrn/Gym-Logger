@@ -14,6 +14,10 @@ h2 {
     font-weight: 600;
 }
 
+th, td {
+    border-bottom: 1px solid #020617;
+}
+
 input[type="submit"] {
     transition: 0.3s;
     font-family: Arial, Helvetica, sans-serif;
@@ -50,12 +54,12 @@ input[required]:hover {
     align-items: flex-start;
     margin:  30px auto;
 
-    gap: 5%;
+    gap: 30%;
 }
 
 #Table {
     background-color: #64748B;
-    width: 100%;
+    width: 200%;
     max-width: 800px;
     border-radius: 25px;
     -moz-border-radius:25px;
@@ -63,12 +67,12 @@ input[required]:hover {
 
 #Form {
 
-    width: 100%;
+    width: 300%;
     max-width: 800px;
 }
 
 #Log {
-    width: 100%;
+    width: 200%;
     max-width: 800px;
 }
 
@@ -96,7 +100,3 @@ input[required]:hover {
     outline: none;
 
 }
-
-
-
-
