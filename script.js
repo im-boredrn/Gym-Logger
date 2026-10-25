@@ -1,12 +1,24 @@
 const form = document.getElementById("FormLogger");
+
 const timeIn = document.getElementById("In-Time");
 const timeOut = document.getElementById("Out-Time");
 const TotalTime = document.getElementById("total-time");
+
 const tBody = document.getElementById("attendance-records");
+
+
 let STotal;
 let ETotal;
 let duration;
 let invalidForm = false;
+
+let serialized;
+
+let records = []
+
+tBody.replaceChildren();
+
+loadRows();
 
 timeIn.addEventListener("change", () => {
 
@@ -104,13 +116,17 @@ function captureInputs()
 
     addTable(formValues);
 
+   //  serialized = JSON.stringify(formValues); //saves vals
+   //  localStorage.setItem('formData', serialized);
+
+     saveRecords(formValues);
 }
 
 function addTable(formValues)
 {
 
   
-    let row = document.createElement("tr"); // needs 6 tds
+    let row = document.createElement("tr"); 
     tBody.appendChild(row);
 
 
@@ -120,4 +136,27 @@ function addTable(formValues)
         row.appendChild(newTd);
 
     });
+
+}
+
+function saveRecords(record)
+{
+    records.push(record); // receives 1 record but loses the pushed records on reload.
+    console.log(records);
+
+    localStorage.setItem('attendance-records', JSON.stringify(records));
+}
+
+function loadRows() 
+{
+    //const saved = JSON.parse(localStorage.getItem('formData')) || [];
+    const retrievedRecords = JSON.parse(localStorage.getItem('attendance-records')) || [];
+
+    records = retrievedRecords;
+
+    retrievedRecords.forEach(record => {
+        addTable(record);
+    });
+
+   // addTable(saved);
 }
