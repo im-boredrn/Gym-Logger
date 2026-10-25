@@ -2,6 +2,9 @@ const form = document.getElementById("FormLogger");
 const timeIn = document.getElementById("In-Time");
 const timeOut = document.getElementById("Out-Time");
 const TotalTime = document.getElementById("total-time");
+const tBody = document.getElementById("attendance-records");
+
+let formValues = [];
 let RawSTime = [];
 let RawETime = [];
 let STime;
@@ -64,7 +67,7 @@ if (form != null)
 {
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-
+    captureInputs()
     console.log(timeIn)
 });
 }
@@ -73,5 +76,34 @@ else
     alert("Form is null!");
     console.log(form);
 
+}
+
+function captureInputs()
+{
+    const formData = new FormData(form);
+    const valuesArray = Array.from(formData.values())
+
+    valuesArray.forEach((value) => {
+        formValues.push(value);
+    });
+
+    addTable();
+
+}
+
+function addTable()
+{
+
+  
+    const row = document.createElement("tr"); // needs 6 tds
+    tBody.appendChild(row);
+
+
+    formValues.forEach((value) => {
+        const newTd = document.createElement("td");
+        newTd.textContent = value;
+        row.appendChild(newTd);
+
+    });
 }
 // Two inputs : Time in and Time out. Assign their values into vars and split by : 
