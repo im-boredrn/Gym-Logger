@@ -3,8 +3,6 @@ const timeIn = document.getElementById("In-Time");
 const timeOut = document.getElementById("Out-Time");
 const TotalTime = document.getElementById("total-time");
 const tBody = document.getElementById("attendance-records");
-
-let formValues = [];
 let RawSTime = [];
 let RawETime = [];
 let STime;
@@ -82,16 +80,17 @@ function captureInputs()
 {
     let formData = new FormData(form);
     let valuesArray = Array.from(formData.values())
+    let formValues = [];
 
     valuesArray.forEach((value) => {
         formValues.push(value);
     });
 
-    addTable();
+    addTable(formValues);
 
 }
 
-function addTable()
+function addTable(formValues)
 {
 
   
