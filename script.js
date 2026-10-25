@@ -3,25 +3,19 @@ const timeIn = document.getElementById("In-Time");
 const timeOut = document.getElementById("Out-Time");
 const TotalTime = document.getElementById("total-time");
 const tBody = document.getElementById("attendance-records");
-let RawSTime = [];
-let RawETime = [];
-let STime;
-let ETime;
 let STotal;
 let ETotal;
 let duration;
+let invalidForm = false;
+
 timeIn.addEventListener("change", () => {
 
-    RawSTime = timeIn.value.split(":"); // [17], [50]
-    STime = RawSTime.join(""); // "1750"
     CalculateTime();
     
 });
 
 timeOut.addEventListener("change", () => {
 
-    RawETime = timeOut.value.split(":");
-    ETime = RawETime.join("");
     CalculateTime();
 });
 
@@ -39,13 +33,8 @@ function CalculateTime()
     STotal = (sHours * 60) + sMinutes;
     ETotal = (eHours * 60) + eMinutes;
 
-    if (STotal < 420 || STotal > 960 
-        || ETotal <420 || ETotal > 960)
-    {
-        console.log("Time must be between 7 AM and 4 PM");
-        TotalTime.value = "Invalid Time!";
-        return;
-    }
+   if (!validifyTime(STotal,ETotal)) invalidForm = true;
+   if (validifyTime(STotal,ETotal)) invalidForm = false;
 
     duration = ETotal - STotal
 
@@ -59,19 +48,36 @@ function CalculateTime()
  TotalTime.value = timeMessage;
 }
 
+function validifyTime(STotal, ETotal)
+{
+
+     if (STotal < 420 || STotal > 960 
+        || ETotal <420 || ETotal > 960)
+    {
+        console.log("Time must be between 7 AM and 4 PM");
+        TotalTime.value = "Invalid Time!";
+        return false;
+    }
+    else return true;
+}
 
 
-if (form != null)
+
+if (form != null )
 {
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    captureInputs()
-    console.log(timeIn)
+    if (invalidForm != true)
+    {
+     captureInputs()
+     console.log(timeIn)
+    }
+    else alert("Invalid Form");
 });
 }
 else 
 {
-    alert("Form is null!");
+    alert("Form is Null");
     console.log(form);
 
 }
@@ -104,5 +110,4 @@ function addTable(formValues)
         row.appendChild(newTd);
 
     });
-    formValues.splice(0, formValues.length);
 }
