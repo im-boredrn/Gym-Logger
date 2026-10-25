@@ -6,6 +6,7 @@
     <title> GymLoggerApp </title>
     <meta name="author" content="Maurice" >
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <main>
@@ -20,7 +21,7 @@
 
         <section id="Container">
             <section >
-            <form action="" method="get" id="Form">
+            <form action="" method="get" id="FormLogger">
                 <div class="form-input" id="name">
                     <label for="name"> Name F&L</label>
                     <input type="text" name="name" class="form-control"  minlength="3" maxlength="30"
@@ -40,12 +41,12 @@
 
                 <div class="form-input">
                 <label for="In-Time">Time In</label>
-                <input type="time" min="7:00" max="16:00" name="In-Time" class="form-control" placeholder="Time in" required>
+                <input type="time" min="7:00" max="16:00" name="In-Time" class="form-control" id="In-Time" required>
                 </div>
 
                 <div class="form-input">
                 <label for="Out-Time">Time Out</label>
-                <input type="time" min="7:00" max="16:00" name="Out-Time" class="form-control" required>
+                <input type="time" min="7:00" max="16:00" name="Out-Time" id="Out-Time" class="form-control" required>
                 </div>
 
                 <div class="form-input">

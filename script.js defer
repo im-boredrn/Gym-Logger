@@ -1,0 +1,15 @@
+const form = document.querySelector("#FormLogger");
+
+if (form != null)
+{
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    alert("Form Submitted!");
+});
+}
+else 
+{
+    alert("Form is null!");
+    console.log(form);
+
+}
