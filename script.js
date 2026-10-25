@@ -80,8 +80,8 @@ else
 
 function captureInputs()
 {
-    const formData = new FormData(form);
-    const valuesArray = Array.from(formData.values())
+    let formData = new FormData(form);
+    let valuesArray = Array.from(formData.values())
 
     valuesArray.forEach((value) => {
         formValues.push(value);
@@ -95,15 +95,15 @@ function addTable()
 {
 
   
-    const row = document.createElement("tr"); // needs 6 tds
+    let row = document.createElement("tr"); // needs 6 tds
     tBody.appendChild(row);
 
 
     formValues.forEach((value) => {
-        const newTd = document.createElement("td");
+        let newTd = document.createElement("td");
         newTd.textContent = value;
         row.appendChild(newTd);
 
     });
+    formValues.splice(0, formValues.length);
 }
-// Two inputs : Time in and Time out. Assign their values into vars and split by : 
