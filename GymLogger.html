@@ -36,22 +36,22 @@
 
                 <div class="form-input" id="date">
                     <label for="date"> Date</label>
-                    <input type="date" name="date" class="form-control"  placeholder="Date" required>
+                    <input type="date" name="dates" class="form-control" id="date" required>
                 </div>
 
                 <div class="form-input">
                 <label for="In-Time">Time In</label>
-                <input type="time" min="7:00" max="16:00" name="In-Time" class="form-control" id="In-Time" required>
+                <input type="time" min="7:00" max="16:00" name="In-Timee" class="form-control" id="In-Time" required>
                 </div>
 
                 <div class="form-input">
                 <label for="Out-Time">Time Out</label>
-                <input type="time" min="7:00" max="16:00" name="Out-Time" id="Out-Time" class="form-control" required>
+                <input type="time" min="7:00" max="16:00" name="Out-Tm" id="Out-Time" class="form-control" required>
                 </div>
 
                 <div class="form-input">
                     <label for="total-time">Total Time</label>
-                <input  type="text" name="total-time" id="total-time" class="form-control" readonly>
+                <input  type="text" name="total-tm" id="total-time" class="form-control" readonly>
                 </div>
               
                 <input type="submit" value="Log" class="form-control" id="Log" required>
@@ -80,6 +80,8 @@
             </table>
             </section>
         </section>
+
+        <button id="wipe"> Clear Records </button>
     </main>
 </body>
 </html>

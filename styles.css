@@ -77,6 +77,25 @@ input[required]:hover {
     max-width: 800px;
 }
 
+#wipe {
+    border-radius: 25px;
+    -moz-border-radius : 25px;
+    transition: 0.3s;
+
+    box-sizing: border-box;
+    height: 30px;
+    border: 1px #475569;
+}
+
+#wipe:hover {
+    background-color: #da3706;
+
+}
+
+#wipe:active {
+    filter: brightness(0.5);
+}
+
 .form-input {
 
     text-align: center;

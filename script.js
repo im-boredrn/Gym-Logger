@@ -14,24 +14,23 @@ let invalidForm = false;
 
 let serialized;
 
-let records = []
+let allRecords = []
 
-tBody.replaceChildren();
+let displayLimit = 3 // 0,1,2,3
 
-loadRows();
 
-timeIn.addEventListener("change", () => {
 
-    CalculateTime();
-    
-});
+createListeners();
 
-timeOut.addEventListener("change", () => {
+tBody.replaceChildren(); // clear rows
 
-    CalculateTime();
-});
+allRecords = loadRecords();
+displayRecords(selectRecords(allRecords))
 
-function CalculateTime()
+
+
+
+function CalculateTime() // input : time in, Output: TotalTime value
 {
 
     if (!timeIn.value  || !timeOut.value) 
@@ -64,7 +63,7 @@ function CalculateTime()
  TotalTime.value = timeMessage;
 }
 
-function validifyTime(STotal, ETotal)
+function validifyTime()
 {
 
      if (STotal < 420 || STotal > 960 
@@ -85,26 +84,9 @@ function validifyTime(STotal, ETotal)
 
 
 
-if (form != null )
-{
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (invalidForm != true)
-    {
-     captureInputs()
-     console.log(timeIn)
-    }
-    else alert("Invalid Form");
-});
-}
-else 
-{
-    alert("Form is Null");
-    console.log(form);
 
-}
 
-function captureInputs()
+function captureRecord() // input : form , output : formValues array
 {
     let formData = new FormData(form);
     let valuesArray = Array.from(formData.values())
@@ -114,18 +96,13 @@ function captureInputs()
         formValues.push(value);
     });
 
-    addTable(formValues);
+    return formValues;
 
-   //  serialized = JSON.stringify(formValues); //saves vals
-   //  localStorage.setItem('formData', serialized);
-
-     saveRecords(formValues);
+   
 }
 
-function addTable(formValues)
+function addRecord(formValues) // inputs : tbody, formValues, output : new record in document
 {
-
-  
     let row = document.createElement("tr"); 
     tBody.appendChild(row);
 
@@ -139,24 +116,99 @@ function addTable(formValues)
 
 }
 
-function saveRecords(record)
+function selectRecords(recordCollection = []) // inputs : [records, selectedRecords], outputs: [selectedRecords[new vals]]
 {
-    records.push(record); // receives 1 record but loses the pushed records on reload.
-    console.log(records);
+    let lowerRange = recordCollection.length - displayLimit; 
+    
+    // slice is exclusive of end index so I need to up it by 1
+    let upperRange = recordCollection.length + 1;
 
-    localStorage.setItem('attendance-records', JSON.stringify(records));
+    if (lowerRange <0 ) lowerRange = 0;
+    let selectedRecords = recordCollection.slice(lowerRange,upperRange)
+
+    return  selectedRecords;
 }
 
-function loadRows() 
+function displayRecords(recordCollection = []) 
 {
-    //const saved = JSON.parse(localStorage.getItem('formData')) || [];
-    const retrievedRecords = JSON.parse(localStorage.getItem('attendance-records')) || [];
 
-    records = retrievedRecords;
+    tBody.replaceChildren();
 
-    retrievedRecords.forEach(record => {
-        addTable(record);
+    recordCollection.forEach(record => {
+        addRecord(record);
     });
 
-   // addTable(saved);
+}
+
+
+
+
+function clearRecords() // Inputs : [records,tbody] | Output : [wiped logs]
+{
+    allRecords = [];
+    tBody.replaceChildren();
+    localStorage.removeItem('attendance-records');
+    console.log(allRecords);
+}
+
+function saveRecords(record) // Inputs : [records, a single record] | Outputs: [saved Records]
+{
+    allRecords.push(record); // receives 1 record but loses the pushed records on reload.
+    console.log(allRecords);
+
+    localStorage.setItem('attendance-records', JSON.stringify(allRecords));
+}
+
+function loadRecords() // Inputs : [records, add record()] | Output : [Adds saved records.]
+{
+    const retrievedRecords = JSON.parse(localStorage.getItem('attendance-records')) || [];
+    return retrievedRecords;
+
+}
+
+const wipe = document.getElementById('wipe');
+
+wipe.addEventListener("click", () =>
+{
+    clearRecords();
+  
+    alert("All Records Wiped!");
+})
+
+
+function createListeners()
+{
+ timeIn.addEventListener("change", () => {
+
+    CalculateTime();
+    
+});
+
+timeOut.addEventListener("change", () => {
+
+    CalculateTime();
+});
+   
+if (form != null )
+{
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (!validifyTime())
+    {
+        let capturedRecord = captureRecord();
+
+      saveRecords(capturedRecord);
+      displayRecords(selectRecords(allRecords));
+     console.log(timeIn)
+    }
+    else alert("Invalid Form");
+});
+}
+else 
+{
+    alert("Form is Null");
+    console.log(form);
+
+}
+
 }
