@@ -25,6 +25,8 @@ function CalculateTime()
     if (!timeIn.value  || !timeOut.value) 
     {
         console.log("Some Time is Empty! ");
+        TotalTime.value = "Incomplete"
+        invalidForm = true;
         return;
     }
     const [sHours,sMinutes] = timeIn.value.split(":").map(Number);
@@ -33,8 +35,10 @@ function CalculateTime()
     STotal = (sHours * 60) + sMinutes;
     ETotal = (eHours * 60) + eMinutes;
 
-   if (!validifyTime(STotal,ETotal)) invalidForm = true;
-   if (validifyTime(STotal,ETotal)) invalidForm = false;
+
+
+
+   if (validifyTime(STotal,ETotal)) return;
 
     duration = ETotal - STotal
 
@@ -52,13 +56,19 @@ function validifyTime(STotal, ETotal)
 {
 
      if (STotal < 420 || STotal > 960 
-        || ETotal <420 || ETotal > 960)
+        || ETotal <420 || ETotal > 960
+        || STotal > ETotal )
     {
         console.log("Time must be between 7 AM and 4 PM");
         TotalTime.value = "Invalid Time!";
+        invalidForm = true;
+        return true;
+    }
+    else 
+    {
+        invalidForm = false;
         return false;
     }
-    else return true;
 }
 
 
