@@ -39,13 +39,24 @@ input[required]:hover {
     box-shadow: 0 0 12px #38BDF8;
 }
 
+input[type="time"], input[type="date"] {
+    width:50%;
+    text-align: center;
+    margin-left: 25%;
+}
+
+input[type="number"] {
+    margin: auto;
+    width: 10%;
+}
+
 
 #Intro {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     border-radius: 35px;
-    
+    width: 80%;
     background-color: #64748B;
 }
 
@@ -55,7 +66,7 @@ input[required]:hover {
     align-items: flex-start;
     margin:  30px auto;
 
-    gap: 30%;
+    gap: 15%;
 }
 
 #Table {
@@ -68,13 +79,14 @@ input[required]:hover {
 
 #FormLogger {
 
-    width: 300%;
+    width: 200%;
     max-width: 800px;
 }
 
 #Log {
     width: 100%;
     max-width: 800px;
+    margin: auto;
 }
 
 #wipe {
@@ -118,5 +130,8 @@ input[required]:hover {
     border: 1px #475569;
     box-shadow: none;
     outline: none;
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;
 
 }
