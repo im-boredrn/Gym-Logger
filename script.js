@@ -6,6 +6,7 @@ const TotalTime = document.getElementById("total-time");
 
 const tBody = document.getElementById("attendance-records");
 
+const displaySetting = document.getElementById('display-limit');
 
 let STotal;
 let ETotal;
@@ -16,8 +17,7 @@ let serialized;
 
 let allRecords = []
 
-let displayLimit = 3 // 0,1,2,3
-
+let displayLimit = document.getElementById('display-limit').value // 0,1,2,3
 
 
 createListeners();
@@ -178,6 +178,20 @@ wipe.addEventListener("click", () =>
 
 function createListeners()
 {
+
+    displaySetting.addEventListener("change", () => {
+
+        if (displaySetting.value <1 || displaySetting.value >20) 
+            {
+                alert('out of bounds!')
+                displaySetting.value = 1
+            }
+
+        displayLimit = Number(displaySetting.value)
+        displayRecords(selectRecords(allRecords));
+
+
+    })
  timeIn.addEventListener("change", () => {
 
     CalculateTime();

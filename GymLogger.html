@@ -15,10 +15,6 @@
         <h2>Rules</h2>
         <p>Gym hours Start and end <strong>7:00 AM - 4:00 PM.</strong> </p>
         </section>
-        <!-- Fill out form and it gets submitted as a record into the table-->
-
-        <!-- Really just needs CSS styling to beautify-->
-
         <section id="Container">
             <section >
             <form action="" method="get" id="FormLogger">
@@ -72,12 +68,13 @@
 
                     </tr>
                 </thead>
-                <!-- Find a way to impelement adding form to table row[JS]-->
                 <tbody id="attendance-records">
-                    
                 </tbody>
-            
             </table>
+            <div class="display-settings">
+                <label for="display-limit">Records to display:</label>
+                <input type="number" class="form-control" id="display-limit" min="1" value="3" max="20">
+            </div>
             </section>
         </section>
 
