@@ -17,6 +17,7 @@ h2 {
 th, td {
     border-bottom: 1px solid #020617;
     border-right: 1px solid #020617;
+    border-left: 1px solid #020617;
 }
 
 input[type="submit"] {
