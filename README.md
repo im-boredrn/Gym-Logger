@@ -1,0 +1,3 @@
+My first ever website. I created this as a way to learn the basics of web development. The inspiration for it came from my gym in real life and the -- in my opinion -- outdated logging system. The old method got the job done but it was a pain to enter the data and keep track of it. So I created this site as a way to show how it could be improved. I went for a minimalistic approach as the users are likely going to be in a rush to exercise. So there was no need to add unnecessary visual feedback.
+
+Simply Enter your information into the form and hit "Log". It will be input into the table and saved. Though it only tracks up to 20 of the latest records.
