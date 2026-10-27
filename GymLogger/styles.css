@@ -100,6 +100,20 @@ input[type="number"] {
     border: 1px #475569;
 }
 
+#see-all {
+    border-radius: 25px;
+    -moz-border-radius : 25px;
+    transition: 0.3s;
+
+    box-sizing: border-box;
+    height: 30px;
+    border: 1px #475569;
+}
+
+#see-all:hover {
+    background-color: #38BDF8;
+}
+
 #wipe:hover {
     background-color: #da3706;
 
