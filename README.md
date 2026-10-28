@@ -3,6 +3,9 @@
 
 My first website. I created this as a way to learn the fundamentals of web development.
 
+<img width="1920" height="1080" alt="Gym Logger" src="https://github.com/user-attachments/assets/f6748673-8c50-43bc-90c6-389b116f4bef" />
+
+
 <h2>Overview</h2>
 
 The inspiration for it came from my gym in real life and the -- in my opinion -- outdated logging system. The old method got the job done but it was a pain to enter the data and keep track of it. 
