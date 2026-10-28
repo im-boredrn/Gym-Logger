@@ -21,4 +21,14 @@ Rather than adding unnecesary visual elements or feedback, the interface priorit
 2. Hit the **Log** button to save the entry locally in your browser
 3. View your record in the table
    
-  
+  <h2>Project Goals</h2>
+
+<ul>
+   <li>Learn the fundamentals of HTML, CSS, and JavaScript.</li>
+   <li>Practice building forms and handling user input.</li>
+   <li>Organize and display records in a table.</li>
+   <li>Explore how a real-world workflow can be improved through software.</li>
+</ul>
+
+
+
